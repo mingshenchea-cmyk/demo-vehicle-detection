@@ -1,4 +1,4 @@
-name: Build and Push YOLO Docker to GHCR
+name: Build and Push YOLO Docker
 
 on:
   push:
@@ -10,13 +10,11 @@ jobs:
     permissions:
       contents: read
       packages: write
-      id-token: write
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Log in to GitHub Container Registry
+      - name: Log in to GHCR
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
